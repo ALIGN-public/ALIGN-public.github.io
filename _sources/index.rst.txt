@@ -14,8 +14,8 @@ The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to a
    :maxdepth: 2
    :caption: Contents:
 
-   debug
    README
+   debug
    modules
 
 Indices and tables
