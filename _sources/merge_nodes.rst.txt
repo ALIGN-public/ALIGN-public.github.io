@@ -1,7 +1,0 @@
-merge\_nodes module
-===================
-
-.. automodule:: merge_nodes
-   :members:
-   :undoc-members:
-   :show-inheritance:
