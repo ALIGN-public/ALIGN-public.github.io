@@ -1,4 +1,4 @@
-How to debug installation installation failures
+How to debug installation failures
 ===============================================
 
 Despite using install.sh if something fails, we have collected a basic set of errors and how to resolve them.
