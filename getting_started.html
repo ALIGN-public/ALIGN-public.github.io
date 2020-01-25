@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting started &#8212; ALIGN 0.9 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to use ALIGN" href="usage.html" />
+    <link rel="prev" title="ALIGN: flow" href="README.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="usage.html" title="How to use ALIGN"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="README.html" title="ALIGN: flow"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ALIGN 0.9 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The suggested way to run the end-to-end ALIGN flow uses a Docker container-based flow for which the user must have docker-compose installed. The ALIGN software is installed in a container image and Make is used to run the flow through the containers. The user may also use the Makefile to run the ALIGN flow through the native Linux build of all the components in the current environment (assuming that all software prerequisites have been installed).</p>
+<p>Two environment variables must be set to run the Makefile in any environment. The first is the ALIGN_HOME variable, which should point the top directory of the ALIGN analog system.</p>
+<blockquote>
+<div><p>% export ALIGN_HOME=&lt;top of ALIGN source area&gt;</p>
+</div></blockquote>
+<p>The second is a working directory ALIGN_WORK_DIR, which can either be the full path to a working directory or a docker volume name.</p>
+<blockquote>
+<div><p>% docker volume create &lt;volumeName&gt;</p>
+<p>% export ALIGN_WORK_DIR=&lt;volumeName for docker flow / full work dir path for native flow&gt;</p>
+</div></blockquote>
+<div class="section" id="native-linux-environment-flow">
+<h2>Native Linux Environment Flow<a class="headerlink" href="#native-linux-environment-flow" title="Permalink to this headline">¶</a></h2>
+<p>You can use ‘<a class="reference external" href="docs/Running*your*first*design.pdf">source install.sh](install.sh)’ (for bash shell) or ‘[source install*tcsh.sh](install*tcsh.sh)’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design &lt;docs/Running*your*first*design.pdf&gt;`*’ (for bash shell) or ‘`source install*tcsh.sh](install*tcsh.sh)’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design &lt;docs/Running*your*first*design.pdf&gt;`*’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through `Running*your*first*design</a> for detailed explanation and common errors during installation.</p>
+<blockquote>
+<div><ul>
+<li><p>Requirements</p>
+<blockquote>
+<div><p>- Python &gt; 3.6</p>
+<p>- gcc&gt;=4.2</p>
+<p>- [Boost]( <a class="reference external" href="https://github.com/boostorg/boost.git">https://github.com/boostorg/boost.git</a>) &gt;= 1.68.0</p>
+<p>- [Lpsolve](<a class="reference external" href="https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp_solve_5.5.2.5_source.tar.gz/download">https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp_solve_5.5.2.5_source.tar.gz/download</a>) &gt;= 5.5.2.5</p>
+<p>- [JSON]( <a class="reference external" href="https://github.com/nlohmann/json.git)">https://github.com/nlohmann/json.git)</a>&gt;=3.7.3</p>
+<p>- [Googletest]( <a class="reference external" href="https://github.com/google/googletest)">https://github.com/google/googletest)</a>&gt;=1.10</p>
+<p>- Skip these steps if you are using [install.sh](install.sh)</p>
+</div></blockquote>
+</li>
+<li><p>Setting up local environment variables if installations are not in system search path.</p>
+<blockquote>
+<div><p>% export BOOST_LP= &lt;boost installation path, e.g., $ALIGN_HOME/boost&gt;</p>
+<p>% export LP_DIR=&lt;lpsolve installation path, e.g., $ALIGN_HOME/lpsolve&gt;</p>
+<p>% export JSON= &lt;json installation path, e.g., $ALIGN_HOME/json&gt;</p>
+<p>% export LD_LIBRARY_PATH=&lt;lpsolve library path, e.g., $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/&gt;</p>
+<p>% export GTEST_DIR=&lt;googletest installation path, e.g., $ALIGN_HOME/googletest/googletest/&gt;</p>
+<p>% export VENV= &lt;python virtual environment path, e.g., ./align_venv&gt;</p>
+<p>% Skip these steps if you are using [install.sh](install.sh)</p>
+</div></blockquote>
+</li>
+<li><p>Installation</p>
+<blockquote>
+<div><p>% cd PlaceRouteHierFlow</p>
+<p>% make</p>
+<p>% cd $ALIGN_HOME</p>
+<p>% python3 -m venv $VENV</p>
+<p>% source $VENV/bin/activate</p>
+<p>% pip install –upgrade pip</p>
+<p>% pip install -e .</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="docker-flow">
+<h2>Docker flow<a class="headerlink" href="#docker-flow" title="Permalink to this headline">¶</a></h2>
+<p>ALIGN also supports push button flow on docker.</p>
+<blockquote>
+<div><ul>
+<li><p>Requirements</p>
+<blockquote>
+<div><p>- Docker-ce &gt; 17.12</p>
+<p>- Docker compose &gt; 3.6</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#native-linux-environment-flow">Native Linux Environment Flow</a></li>
+<li><a class="reference internal" href="#docker-flow">Docker flow</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="README.html"
+                        title="previous chapter">ALIGN: flow</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="usage.html"
+                        title="next chapter">How to use ALIGN</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting_started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="usage.html" title="How to use ALIGN"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="README.html" title="ALIGN: flow"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ALIGN 0.9 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Kunal and ALIGN team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+  </body>
+</html>

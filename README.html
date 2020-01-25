@@ -16,7 +16,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to debug installation installation failure" href="debug.html" />
+    <link rel="next" title="Getting started" href="getting_started.html" />
     <link rel="prev" title="ALIGN: Analog Layout, Intelligently Generated from Netlists" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -29,7 +29,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="debug.html" title="How to debug installation installation failure"
+          <a href="getting_started.html" title="Getting started"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="ALIGN: Analog Layout, Intelligently Generated from Netlists"
@@ -45,8 +45,6 @@
             
   <div class="section" id="align-flow">
 <h1>ALIGN: flow<a class="headerlink" href="#align-flow" title="Permalink to this headline">¶</a></h1>
-<p>ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&amp;M University, and Intel Corporation.</p>
-<p>The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout. The repository also releases a set of analog circuit designs.</p>
 <p>The ALIGN flow includes the following steps:</p>
 <ul class="simple">
 <li><p><em>Circuit annotation</em> creates a multilevel hierarchical representation of the input netlist. This representation is used to implement the circuit layout in using a hierarchical manner.</p></li>
@@ -54,15 +52,14 @@
 <li><p><em>Primitive cell generation</em> works with primitives, i.e., blocks the lowest level of design hierarchy, and generates their layouts. Primitives typically contain a small number of transistor structures (each of which may be implemented using multiple fins and/or fingers). A parameterized instance of a primitive is automatically translated to a GDSII layout in this step.</p></li>
 <li><p><em>Placement and routing</em> performs block assembly of the hierarchical blocks in the netlist and routes connections between these blocks, while obeying a set of analog layout constraints. At the end of this step, the translation of the input SPICE netlist to a GDSII layout is complete.</p></li>
 </ul>
-</div>
 <div class="section" id="inputs">
-<h1>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul>
-<li><p>A <a class="reference external" href="examples/telescopic*ota/telescopic*ota.sp">SPICE netlist</a> of the analog circuit</p></li>
-<li><p><a class="reference external" href="examples/telescopic*ota/telescopic*ota.setup">Setup file</a></p>
+<li><p>A <a class="reference external" href="https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic*ota/telescopic*ota.sp">SPICE netlist</a> of the analog circuit</p></li>
+<li><p><a class="reference external" href="https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic*ota/telescopic*ota.setup">Setup file</a></p>
 <blockquote>
-<div><p>- Power and Gnd signals (First power signal is used for global power grid)</p>
+<div><p>Power and Gnd signals (First power signal is used for global power grid)</p>
 <p>- Clk signal (optional)</p>
 <p>- Digital blocks (optional)</p>
 </div></blockquote>
@@ -89,7 +86,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="outputs">
-<h1>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h1>
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p>Layout GDS: Final layout of the design. The output GDS can be imported into any GDSII viewer.</p></li>
@@ -98,122 +95,6 @@
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>The suggested way to run the end-to-end ALIGN flow uses a Docker container-based flow for which the user must have docker-compose installed. The ALIGN software is installed in a container image and Make is used to run the flow through the containers. The user may also use the Makefile to run the ALIGN flow through the native Linux build of all the components in the current environment (assuming that all software prerequisites have been installed).</p>
-<p>Two environment variables must be set to run the Makefile in any environment. The first is the ALIGN_HOME variable, which should point the top directory of the ALIGN analog system.</p>
-<blockquote>
-<div><p>% export ALIGN_HOME=&lt;top of ALIGN source area&gt;</p>
-</div></blockquote>
-<p>The second is a working directory ALIGN_WORK_DIR, which can either be the full path to a working directory or a docker volume name.</p>
-<blockquote>
-<div><p>% docker volume create &lt;volumeName&gt;</p>
-<p>% export ALIGN_WORK_DIR=&lt;volumeName for docker flow / full work dir path for native flow&gt;</p>
-</div></blockquote>
-<div class="section" id="native-linux-environment-flow">
-<h2>Native Linux Environment Flow<a class="headerlink" href="#native-linux-environment-flow" title="Permalink to this headline">¶</a></h2>
-<p>You can use ‘<a class="reference external" href="docs/Running*your*first*design.pdf">source install.sh](install.sh)’ (for bash shell) or ‘[source install*tcsh.sh](install*tcsh.sh)’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design &lt;docs/Running*your*first*design.pdf&gt;`*’ (for bash shell) or ‘`source install*tcsh.sh](install*tcsh.sh)’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design &lt;docs/Running*your*first*design.pdf&gt;`*’ (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through `Running*your*first*design</a> for detailed explanation and common errors during installation.</p>
-<blockquote>
-<div><ul>
-<li><p>Requirements</p>
-<blockquote>
-<div><p>- Python &gt; 3.6</p>
-<p>- gcc&gt;=4.2</p>
-<p>- [Boost]( <a class="reference external" href="https://github.com/boostorg/boost.git">https://github.com/boostorg/boost.git</a>) &gt;= 1.68.0</p>
-<p>- [Lpsolve](<a class="reference external" href="https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp_solve_5.5.2.5_source.tar.gz/download">https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp_solve_5.5.2.5_source.tar.gz/download</a>) &gt;= 5.5.2.5</p>
-<p>- [JSON]( <a class="reference external" href="https://github.com/nlohmann/json.git)">https://github.com/nlohmann/json.git)</a>&gt;=3.7.3</p>
-<p>- [Googletest]( <a class="reference external" href="https://github.com/google/googletest)">https://github.com/google/googletest)</a>&gt;=1.10</p>
-<p>- Skip these steps if you are using [install.sh](install.sh)</p>
-</div></blockquote>
-</li>
-<li><p>Setting up local environment variables if installations are not in system search path.</p>
-<blockquote>
-<div><p>% export BOOST_LP= &lt;boost installation path, e.g., $ALIGN_HOME/boost&gt;</p>
-<p>% export LP_DIR=&lt;lpsolve installation path, e.g., $ALIGN_HOME/lpsolve&gt;</p>
-<p>% export JSON= &lt;json installation path, e.g., $ALIGN_HOME/json&gt;</p>
-<p>% export LD_LIBRARY_PATH=&lt;lpsolve library path, e.g., $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/&gt;</p>
-<p>% export GTEST_DIR=&lt;googletest installation path, e.g., $ALIGN_HOME/googletest/googletest/&gt;</p>
-<p>% export VENV= &lt;python virtual environment path, e.g., ./align_venv&gt;</p>
-<p>% Skip these steps if you are using [install.sh](install.sh)</p>
-</div></blockquote>
-</li>
-<li><p>Installation</p>
-<blockquote>
-<div><p>% cd PlaceRouteHierFlow</p>
-<p>% make</p>
-<p>% cd $ALIGN_HOME</p>
-<p>% python3 -m venv $VENV</p>
-<p>% source $VENV/bin/activate</p>
-<p>% pip install –upgrade pip</p>
-<p>% pip install -e .</p>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="docker-flow">
-<h2>Docker flow<a class="headerlink" href="#docker-flow" title="Permalink to this headline">¶</a></h2>
-<p>ALIGN also supports push button flow on docker.</p>
-<blockquote>
-<div><ul>
-<li><p>Requirements</p>
-<blockquote>
-<div><p>- Docker-ce &gt; 17.12</p>
-<p>- Docker compose &gt; 3.6</p>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="how-to-use-align">
-<h1>How to use ALIGN<a class="headerlink" href="#how-to-use-align" title="Permalink to this headline">¶</a></h1>
-<p>By default, the design directory is set to the examples directory. This can be modfied in the Makefile.
-Native environment flow
-————————-</p>
-<ul>
-<li><p>Setup your own work directory</p>
-<blockquote>
-<div><p>% mkdir $ALIGN_WORK_DIR</p>
-<p>% cd $ALIGN_WORK_DIR</p>
-<p>% ln -s $ALIGN_HOME/build/Makefile</p>
-</div></blockquote>
-</li>
-<li><p>Run ALIGN using make flow</p>
-<blockquote>
-<div><p>% make VENV=$VENV DESIGN=&lt;design&gt;</p>
-</div></blockquote>
-</li>
-<li><p>Explore different features of ALIGN using python arguments</p>
-<blockquote>
-<div><p>% source $VENV/bin/activate</p>
-<p>% schematic2layout.py &lt;input_directory&gt; -f &lt;spice file&gt; -s &lt;design_name&gt; -p &lt;pdk path&gt; -flat &lt;0/1&gt; -c (to check drc) -g (to generate image of layout)</p>
-<p>% e.g., &gt; schematic2layout.py $ALIGN_HOME/examples/buffer/ -f $ALIGN_HOME/examples/buffer/buffer.sp -s buffer -p $ALIGN_HOME/pdks/FinFET14nm_Mock_PDK -flat 0 -c -g</p>
-</div></blockquote>
-</li>
-</ul>
-<div class="section" id="docker-based-run">
-<h2>Docker based run<a class="headerlink" href="#docker-based-run" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>% cd $ALIGN_HOME/build</p>
-<p>% make docker DESIGN=&lt;design&gt;</p>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="design-database">
-<h1>Design database<a class="headerlink" href="#design-database" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="examples">examples</a>: Contains example circuits with netlists running on circleci</p></li>
-<li><p><a class="reference external" href="CircuitsDatabase">CircuitsDatabase</a>: Contains benchmark circuits</p></li>
-</ul>
-</div>
-<div class="section" id="viewer">
-<h1>Viewer<a class="headerlink" href="#viewer" title="Permalink to this headline">¶</a></h1>
-<p>The final output GDS can be viewed using by importing in virtuoso or any GDS viewer</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/KLayout/klayout">KLayout</a>: GDS viewer (WSL users would need to install xming for display to work)</p></li>
-<li><p><a class="reference external" href="Viewer">Viewer</a>: Layout viewer to view output JSON file</p></li>
-</ul>
 </div>
 
 
@@ -224,28 +105,19 @@ Native environment flow
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">ALIGN: flow</a></li>
-<li><a class="reference internal" href="#inputs">Inputs:</a></li>
+<li><a class="reference internal" href="#">ALIGN: flow</a><ul>
+<li><a class="reference internal" href="#inputs">Inputs</a></li>
 <li><a class="reference internal" href="#outputs">Outputs</a></li>
-<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
-<li><a class="reference internal" href="#native-linux-environment-flow">Native Linux Environment Flow</a></li>
-<li><a class="reference internal" href="#docker-flow">Docker flow</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-to-use-align">How to use ALIGN</a><ul>
-<li><a class="reference internal" href="#docker-based-run">Docker based run</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#design-database">Design database</a></li>
-<li><a class="reference internal" href="#viewer">Viewer</a></li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">ALIGN: Analog Layout, Intelligently Generated from Netlists</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="debug.html"
-                        title="next chapter">How to debug installation installation failure</a></p>
+  <p class="topless"><a href="getting_started.html"
+                        title="next chapter">Getting started</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -277,7 +149,7 @@ Native environment flow
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="debug.html" title="How to debug installation installation failure"
+          <a href="getting_started.html" title="Getting started"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="ALIGN: Analog Layout, Intelligently Generated from Netlists"
