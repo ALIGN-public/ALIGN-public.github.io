@@ -26,8 +26,9 @@ The ALIGN flow includes the following steps:
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-    README
+
     debug
+    README
     modules
 
 Indices and tables
