@@ -6,18 +6,21 @@ Despite using install.sh if something fails, we have collected a basic set of er
 
 Error due to gcc version
 --------------------------
-Error: 
-PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found
-Solution:  C++ version is old. Please update C++ version > 4.2
-To use inside UMN use “module load gcc/8.2.0” 
+.. note:: 
+
+    PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found
+    Solution:  C++ version is old. Please update C++ version > 4.2
+    To use inside UMN use “module load gcc/8.2.0” 
 
 Error due to LD_LIBRARY_PATH prerequisite missing: 
 --------------------------------------------------
-Error: Unable to load lpsolve shared library (liblpsolve55.so).
-It is probably not in the correct path.
-LP test flag 2
-TotNumberOfNest 14 TotNumberOfSTs 70
-align.cmdline ERROR : Fatal Error. Cannot proceed
+.. code-block:: none 
+
+    Unable to load lpsolve shared library (liblpsolve55.so).
+    It is probably not in the correct path.
+    LP test flag 2
+    TotNumberOfNest 14 TotNumberOfSTs 70
+    align.cmdline ERROR : Fatal Error. Cannot proceed
 
 Solution:
 It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
