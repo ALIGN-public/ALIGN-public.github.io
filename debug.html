@@ -48,18 +48,20 @@
 <p>Despite using install.sh if something fails, we have collected a basic set of errors and how to resolve them.</p>
 <div class="section" id="error-due-to-gcc-version">
 <h2>Error due to gcc version<a class="headerlink" href="#error-due-to-gcc-version" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version &#39;GLIBCXX_3.4.21&#39; not found
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version &#39;GLIBCXX_3.4.21&#39; not found
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>C++ version is old. Please update C++ version &gt; 4.2</p>
-<p>Inside UMN use “module load gcc/8.2.0”</p>
+<p>C++ version is old. Please update C++ version &gt; 4.2
+Inside UMN use “module load gcc/8.2.0”</p>
 </div>
 </div>
 <div class="section" id="error-due-to-ld-library-path-prerequisite-missing">
 <h2>Error due to LD_LIBRARY_PATH prerequisite missing:<a class="headerlink" href="#error-due-to-ld-library-path-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unable to load lpsolve shared library (liblpsolve55.so).
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+Unable to load lpsolve shared library (liblpsolve55.so).
 It is probably not in the correct path.
 LP test flag 2
 TotNumberOfNest 14 TotNumberOfSTs 70
@@ -68,8 +70,8 @@ align.cmdline ERROR : Fatal Error. Cannot proceed
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
-To install lpsolve:</p>
+<p>It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct</p>
+<p>To install lpsolve:</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
 </pre></div>
@@ -85,12 +87,16 @@ RedHat/tcsh: Setenv LD_LIBRARY_PATH <span class="nv">$ALIGN_HOME</span>/lpsolve/
 </div>
 <div class="section" id="error-due-to-xvfb-library-used-to-generate-image-of-layout">
 <h2>Error due to xvfb library used to generate image of layout:<a class="headerlink" href="#error-due-to-xvfb-library-used-to-generate-image-of-layout" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR : Call to &#39;gds2png.sh /ALIGN-public/work/telescopic_ota/telescopic_ota_0.gds /ALIGN-public/work/telescopic_ota/telescopic_ota_0.png /ALIGN-public/align/config/image_png.rb&#39; failed:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR :
+Call to &#39;gds2png.sh /ALIGN-public/work/telescopic_ota/telescopic_ota_0.gds /ALIGN-public/work/telescopic_ota/telescopic_ota_0.png /ALIGN-public/align/config/image_png.rb&#39; failed:
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>sudo apt-get install xvfb</p>
+<p>xvfb package missing</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install xvfb
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-lpsolve-library-prerequisite-missing">
@@ -103,14 +109,19 @@ compilation terminated.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It can be due to LD_DIR not present or LD_LIBRARY_PATH path not correct
-To install lpsolve:
-git clone <a class="reference external" href="https://www.github.com/ALIGN-analoglayout/lpsolve.git">https://www.github.com/ALIGN-analoglayout/lpsolve.git</a>
-To set lpsolve environment path:
-Ubuntu/bash:
-export LP_DIR=$ALIGN_HOME/lpsolve
-RedHat/tcsh:
-setenv LD_DIR $ALIGN_HOME/lpsolve</p>
+<p>It can be due to LD_LIBRARY_PATH not configured correctly</p>
+<p>To install lpsolve:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To set lpsolve environment path:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ubuntu/bash: <span class="nb">export</span> <span class="nv">LP_DIR</span><span class="o">=</span><span class="nv">$ALIGN_HOME</span>/lpsolve
+RedHat/tcsh: setenv LD_DIR <span class="nv">$ALIGN_HOME</span>/lpsolve
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-googletest-prerequisite-missing">
@@ -123,20 +134,25 @@ compilation terminated.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It can be due to googletest not present or googletest path not correct
-Installing googletest
-cd $ALIGN_HOME
-git clone <a class="reference external" href="https://github.com/google/googletest">https://github.com/google/googletest</a>
-cd googletest/
+<p>It can be due to googletest not present or googletest path not correct</p>
+<p>Installing googletest</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$ALIGN_HOME</span>
+git clone https://github.com/google/googletest
+<span class="nb">cd</span> googletest/
 cmake CMakeLists.txt
 make
 mkdir googletest/mybuild
 cp -r lib googletest/mybuild/.
-To set googletest path
-Ubuntu/bash:
-export GTEST_DIR=$ALIGN_HOME/googletest/googletest/
-RedHat/tcsh:
-setenv GTEST_DIR $ALIGN_HOME/googletest/googletest/</p>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To set googletest path</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ubuntu/bash: <span class="nb">export</span> <span class="nv">GTEST_DIR</span><span class="o">=</span><span class="nv">$ALIGN_HOME</span>/googletest/googletest/
+RedHat/tcsh: setenv GTEST_DIR <span class="nv">$ALIGN_HOME</span>/googletest/googletest/
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-json-prerequisite-missing">
@@ -149,15 +165,19 @@ compilation terminated.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It can be due to JSON not present or JSON path not correct
-Installing JSON
-cd $ALIGN_HOME
-git clone <a class="reference external" href="https://github.com/nlohmann/json.git">https://github.com/nlohmann/json.git</a>
-To set JSON path
-Ubuntu/bash:
-export JSON=$ALIGN_HOME/json
-RedHat/tcsh:
-setenv JSON $ALIGN_HOME/json</p>
+<p>It can be due to JSON not present or JSON path not correct</p>
+<p>Installing JSON</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$ALIGN_HOME</span>
+git clone https://github.com/nlohmann/json.git
+
+To <span class="nb">set</span> JSON path
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ubuntu/bash: export JSON=$ALIGN_HOME/json
+RedHat/tcsh: setenv JSON $ALIGN_HOME/json</p>
 </div>
 </div>
 <div class="section" id="error-due-to-python-virtual-environment-prerequisite-missing">
@@ -167,17 +187,24 @@ setenv JSON $ALIGN_HOME/json</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>ALIGN is installed inside a python virtual environment. The default path of the virtual environment is assumed to be /opt/venv/bin/activate. You can edit the makefile to the path of your virtual environment or pass the virtual environment path as a parameter.
-Install python virtual environment:
-cd $ALIGN_HOME
-export VENV=$ALIGN_HOME/general
-python3.6 -m venv $VENV
-source $VENV/bin/activate
-pip install –upgrade pip
+<p>ALIGN is installed inside a python virtual environment. The default path of the virtual environment is assumed to be /opt/venv/bin/activate. You can edit the makefile to the path of your virtual environment or pass the virtual environment path as a parameter.</p>
+<p>Install python virtual environment:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$ALIGN_HOME</span>
+<span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span><span class="nv">$ALIGN_HOME</span>/general
+python3.6 -m venv <span class="nv">$VENV</span>
+<span class="nb">source</span> <span class="nv">$VENV</span>/bin/activate
+pip install --upgrade pip
 pip install -e .
 deactivate
-To use virtual environment from a path:
-make  VENV=$VENV DESIGN=telescopic_ota</p>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use virtual environment from a path:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make  <span class="nv">VENV</span><span class="o">=</span><span class="nv">$VENV</span> <span class="nv">DESIGN</span><span class="o">=</span>telescopic_ota
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-klayout-prerequisite-missing">
@@ -187,9 +214,11 @@ make  VENV=$VENV DESIGN=telescopic_ota</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Install klayout tool for visualization
-curl -o /klayout_0.25.4-1_amd64.deb <a class="reference external" href="https://www.klayout.org/downloads/Ubuntu-18/klayout_0.25.4-1_amd64.deb">https://www.klayout.org/downloads/Ubuntu-18/klayout_0.25.4-1_amd64.deb</a>
-apt-get install -yq /klayout_0.25.4-1_amd64.deb</p>
+<p>Install klayout tool for visualization</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -o /klayout_0.25.4-1_amd64.deb https://www.klayout.org/downloads/Ubuntu-18/klayout_0.25.4-1_amd64.deb
+apt-get install -yq /klayout_0.25.4-1_amd64.deb
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-missing-align-installation">
@@ -203,12 +232,14 @@ make: *** [telescopic_ota/telescopic_ota_0.png] Error 2
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This happens due to issues with pip version resulting in missing align package installation.
-cd $ALIGN_HOME
-source $VENV/bin/activate
-pip Install –upgrade pip
+<p>This happens due to issues with pip version resulting in missing align package installation.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$ALIGN_HOME</span>
+<span class="nb">source</span> <span class="nv">$VENV</span>/bin/activate
+pip Install --upgrade pip
 pip Install -e .
-deactivate</p>
+deactivate
+</pre></div>
 </div>
 </div>
 <div class="section" id="error-due-to-g-package-not-updated">
