@@ -30,11 +30,9 @@ You can use `install.sh <https://github.com/ALIGN-analoglayout/ALIGN-public/blob
 .. note:: 
     Requirements being installed through install.sh
 
-.. code-block:: none
-
-	* Python > 3.6
-	* gcc>=4.2
-    * Ubuntu>=18.04/ RedHat
+* Python > 3.6
+* gcc>=4.2
+* Ubuntu>=18.04 / RedHat
 
 .. comment
 	* `Boost <https://github.com/boostorg/boost.git>`_ >= 1.68.0
