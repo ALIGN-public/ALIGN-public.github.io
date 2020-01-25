@@ -27,9 +27,9 @@ The ALIGN flow includes the following steps:
    :maxdepth: 2
    :caption: Contents:
 
-    debug
-    README
-    modules
+   debug
+   README
+   modules
 
 Indices and tables
 ==================
