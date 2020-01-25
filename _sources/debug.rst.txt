@@ -9,9 +9,10 @@ Error due to gcc version
 .. code-block:: none 
 
     PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found
+
 .. note:: 
     
-    :strong: `Solution`:  C++ version is old. Please update C++ version > 4.2
+    C++ version is old. Please update C++ version > 4.2
     To use inside UMN use “module load gcc/8.2.0” 
 
 Error due to LD_LIBRARY_PATH prerequisite missing: 
@@ -24,15 +25,15 @@ Error due to LD_LIBRARY_PATH prerequisite missing:
     TotNumberOfNest 14 TotNumberOfSTs 70
     align.cmdline ERROR : Fatal Error. Cannot proceed
 
-Solution:
-It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
-To install lpsolve: 
-git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
-To set lpsolve environment path:
-Ubuntu/bash:
-export LD_LIBRARY_PATH=$ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
-RedHat/tcsh:
-Setenv LD_LIBRARY_PATH $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
+.. note:: 
+    It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
+    To install lpsolve: 
+    git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
+    To set lpsolve environment path:
+    Ubuntu/bash:
+    export LD_LIBRARY_PATH=$ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
+    RedHat/tcsh:
+    Setenv LD_LIBRARY_PATH $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
  
 Error due to xvfb library used to generate image of layout: 
 ------------------------------------------------------------

@@ -53,12 +53,8 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<dl class="field-list simple">
-<dt class="field-odd">strong</dt>
-<dd class="field-odd"><p><cite>Solution</cite>:  C++ version is old. Please update C++ version &gt; 4.2</p>
-</dd>
-</dl>
-<p>To use inside UMN use “module load gcc/8.2.0”</p>
+<p>C++ version is old. Please update C++ version &gt; 4.2
+To use inside UMN use “module load gcc/8.2.0”</p>
 </div>
 </div>
 <div class="section" id="error-due-to-ld-library-path-prerequisite-missing">
@@ -70,8 +66,9 @@ TotNumberOfNest 14 TotNumberOfSTs 70
 align.cmdline ERROR : Fatal Error. Cannot proceed
 </pre></div>
 </div>
-<p>Solution:
-It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
 To install lpsolve:
 git clone <a class="reference external" href="https://www.github.com/ALIGN-analoglayout/lpsolve.git">https://www.github.com/ALIGN-analoglayout/lpsolve.git</a>
 To set lpsolve environment path:
@@ -79,6 +76,7 @@ Ubuntu/bash:
 export LD_LIBRARY_PATH=$ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
 RedHat/tcsh:
 Setenv LD_LIBRARY_PATH $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/</p>
+</div>
 </div>
 <div class="section" id="error-due-to-xvfb-library-used-to-generate-image-of-layout">
 <h2>Error due to xvfb library used to generate image of layout:<a class="headerlink" href="#error-due-to-xvfb-library-used-to-generate-image-of-layout" title="Permalink to this headline">¶</a></h2>
