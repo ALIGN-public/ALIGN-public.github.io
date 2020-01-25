@@ -59,23 +59,22 @@
 <div class="section" id="native-linux-environment-flow">
 <h2>Native Linux Environment Flow<a class="headerlink" href="#native-linux-environment-flow" title="Permalink to this headline">¶</a></h2>
 <p>You can use <a class="reference external" href="https://github.com/ALIGN-analoglayout/ALIGN-public/blob/native_single_command_flow/install.sh">install.sh</a>  to install the requirements and the native flow. Please go through <a class="reference external" href="https://align-public.github.io/debug.html">how to debug installation failures in our documentation</a> for detailed explanation and common errors during installation.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   <span class="k">for</span> bash : <span class="nb">source</span> install.sh
-   <span class="k">for</span> tcsh : <span class="nb">source</span> install_tcsh.sh
-
-* Requirements being installed through install.sh
-
-       * Python &gt; <span class="m">3</span>.6
-       * gcc&gt;<span class="o">=</span><span class="m">4</span>.2
-       * <span class="sb">`</span>Boost &lt;https://github.com/boostorg/boost.git&gt;<span class="sb">`</span>_ &gt;<span class="o">=</span> <span class="m">1</span>.68.0
-       * <span class="sb">`</span>Lpsolve &lt;https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp<span class="se">\_</span>solve<span class="se">\_</span><span class="m">5</span>.5.2.5<span class="se">\_</span>source.tar.gz/download&gt;<span class="sb">`</span>_ &gt;<span class="o">=</span> <span class="m">5</span>.5.2.5
-       * <span class="sb">`</span>JSON &lt;https://github.com/nlohmann/json.git&gt;<span class="sb">`</span><span class="nv">_</span> <span class="o">=</span><span class="m">3</span>.7.3
-       * <span class="sb">`</span>Googletest &lt;https://github.com/google/googletest&gt;<span class="sb">`</span><span class="nv">_</span> <span class="o">=</span><span class="m">1</span>.10
-
-
-               % Skip these steps <span class="k">if</span> you are using <span class="o">[</span>install.sh<span class="o">](</span>install.sh<span class="o">)</span>
-
-* Installation
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> bash : <span class="nb">source</span> install.sh
+<span class="k">for</span> tcsh : <span class="nb">source</span> install_tcsh.sh
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requirements being installed through install.sh</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    * Python &gt; 3.6
+    * gcc&gt;=4.2
+* Ubuntu&gt;=18.04/ RedHat
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Installation</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> PlaceRouteHierFlow
 make
@@ -90,16 +89,14 @@ pip install -e .
 <div class="section" id="docker-flow">
 <h2>Docker flow<a class="headerlink" href="#docker-flow" title="Permalink to this headline">¶</a></h2>
 <p>ALIGN also supports push button flow on docker.</p>
-<blockquote>
-<div><ul>
-<li><p>Requirements</p>
-<blockquote>
-<div><p>- Docker-ce &gt; 17.12</p>
-<p>- Docker compose &gt; 3.6</p>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requirements</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Docker-ce &gt; 17.12
+Docker compose &gt; 3.6
+</pre></div>
+</div>
 </div>
 </div>
 

@@ -27,19 +27,23 @@ You can use `install.sh <https://github.com/ALIGN-analoglayout/ALIGN-public/blob
     for bash : source install.sh
     for tcsh : source install_tcsh.sh
 
- * Requirements being installed through install.sh
+.. note:: 
+    Requirements being installed through install.sh
+
+.. code-block:: none
 
 	* Python > 3.6
 	* gcc>=4.2
+    * Ubuntu>=18.04/ RedHat
+
+.. comment
 	* `Boost <https://github.com/boostorg/boost.git>`_ >= 1.68.0
 	* `Lpsolve <https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp\_solve\_5.5.2.5\_source.tar.gz/download>`_ >= 5.5.2.5
 	* `JSON <https://github.com/nlohmann/json.git>`_ =3.7.3
 	* `Googletest <https://github.com/google/googletest>`_ =1.10
 
-
-		% Skip these steps if you are using [install.sh](install.sh)
-
- * Installation
+.. note:: 
+    Installation
 
 .. code-block:: bash 
     
@@ -56,9 +60,11 @@ Docker flow
 
 ALIGN also supports push button flow on docker.
 
- * Requirements
+.. note:: 
+    Requirements
 
-	\- Docker\-ce > 17.12
+.. code-block:: none
 
-	\- Docker compose > 3.6
+	Docker-ce > 17.12
+	Docker compose > 3.6
 
