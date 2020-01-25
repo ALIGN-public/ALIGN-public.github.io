@@ -56,6 +56,7 @@ Error due to xvfb library used to generate image of layout:
     
    xvfb package missing
 
+To install xvfb: 
 .. code-block:: bash 
 
    sudo apt-get install xvfb
@@ -74,15 +75,13 @@ Error due to lpsolve library prerequisite missing:
     
     It can be due to LD_LIBRARY_PATH not configured correctly
 
-    To install lpsolve: 
+To install lpsolve: 
 
 .. code-block:: bash 
 
     git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
 
-.. note:: 
-    
-    To set lpsolve environment path:
+To set lpsolve environment path:
 
 .. code-block:: bash 
 
@@ -103,7 +102,7 @@ Error due to googletest prerequisite missing:
     
     It can be due to googletest not present or googletest path not correct
 
-    Installing googletest
+To install googletest:
 
 .. code-block:: bash 
 
@@ -115,9 +114,7 @@ Error due to googletest prerequisite missing:
     mkdir googletest/mybuild
     cp -r lib googletest/mybuild/.
 
-.. note:: 
-    
-    To set googletest path
+To set googletest path:
 
 .. code-block:: bash 
 
@@ -138,17 +135,17 @@ Error due to JSON prerequisite missing:
     
     It can be due to JSON not present or JSON path not correct
 
-    Installing JSON
+To install JSON:
 
 .. code-block:: bash 
     
     cd $ALIGN_HOME
     git clone https://github.com/nlohmann/json.git
 
-    To set JSON path
+To set JSON path
 
-.. note:: 
-    
+.. code-block:: bash 
+
     Ubuntu/bash: export JSON=$ALIGN_HOME/json
     RedHat/tcsh: setenv JSON $ALIGN_HOME/json
 
@@ -163,7 +160,7 @@ Error due to python virtual environment prerequisite missing
     
     ALIGN is installed inside a python virtual environment. The default path of the virtual environment is assumed to be /opt/venv/bin/activate. You can edit the makefile to the path of your virtual environment or pass the virtual environment path as a parameter.
 
-    Install python virtual environment:
+To install python virtual environment:
 
 .. code-block:: bash 
     
@@ -175,10 +172,8 @@ Error due to python virtual environment prerequisite missing
     pip install -e .
     deactivate
 
-
-.. note:: 
     
-    To use virtual environment from a path:
+To set virtual environment path:
 
 .. code-block:: bash 
     
@@ -194,6 +189,8 @@ Error due to klayout prerequisite missing
 .. note:: 
     
     Install klayout tool for visualization
+
+To install klayout:
 
 .. code-block:: bash 
     
@@ -214,6 +211,8 @@ Error due to missing align installation
 .. note:: 
     
     This happens due to issues with pip version resulting in missing align package installation.
+
+To install align:
 
 .. code-block:: bash 
     
