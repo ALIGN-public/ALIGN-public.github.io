@@ -26,13 +26,13 @@ Inputs
 
  * Library:(SPICE format)
 
-	* A basic built\-in [template library](align/config/basic\_template.sp) is provided, which is used to identify hierachies in the design.
+	* A basic built\-in `template library <https://github.com/ALIGN-analoglayout/ALIGN-public/blob/master/align/config/basic_template.sp>`_ is provided, which is used to identify hierachies in the design.
 
-	* More library elements can be added in the [user\_template library](align/config/user\_template.sp).
+	* More library elements can be added in the `user_template_library <https://github.com/ALIGN-analoglayout/ALIGN-public/blob/master/align/config/user_template.sp>`_.
 
  * PDK: Abstracted `design rules <https://github.com/ALIGN-analoglayout/ALIGN-public/tree/master/pdks/FinFET14nm_Mock_PDK>`_
 
-	* A mock FinFET 14nm PDK [rules file](pdks/FinFET14nm\_Mock\_PDK/layers.json) is provided, which is used by the primitive cell generator and the place and route engine.
+	* A mock FinFET 14nm PDK `rules file <https://github.com/ALIGN-analoglayout/ALIGN-public/tree/master/pdks/FinFET14nm_Mock_PDK/layers.json>`_ is provided, which is used by the primitive cell generator and the place and route engine.
 
 	* A new PDK can be represented using a JSON\-format design rule abstraction, similar to mock\-PDK design rules file provided.
 
