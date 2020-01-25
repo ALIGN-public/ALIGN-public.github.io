@@ -15,7 +15,7 @@ The goal of ALIGN is to automatically translate an unannotated (or partially ann
    :caption: Contents:
 
    database
-   README
+   flow
    getting_started
    usage
    viewer
