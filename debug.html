@@ -16,8 +16,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Inputs" href="README.html" />
-    <link rel="prev" title="ALIGN: Analog Layout, Intelligently Generated from Netlists" href="index.html" /> 
+    <link rel="next" title="align" href="modules.html" />
+    <link rel="prev" title="Design database" href="database.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -29,10 +29,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="README.html" title="Inputs"
+          <a href="modules.html" title="align"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="ALIGN: Analog Layout, Intelligently Generated from Netlists"
+          <a href="database.html" title="Design database"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">ALIGN 0.9 documentation</a> &#187;</li> 
       </ul>
@@ -45,7 +45,151 @@
             
   <div class="section" id="how-to-debug-installation-installation-failure">
 <h1>How to debug installation installation failure<a class="headerlink" href="#how-to-debug-installation-installation-failure" title="Permalink to this headline">¶</a></h1>
-<p>this is debug</p>
+<p>Despite using install.sh if something fails, we have collected a basic set of errors and how to resolve them.</p>
+<div class="section" id="error-due-to-gcc-version">
+<h2>Error due to gcc version<a class="headerlink" href="#error-due-to-gcc-version" title="Permalink to this headline">¶</a></h2>
+<p>Error:
+PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version ‘GLIBCXX_3.4.21’ not found
+Solution:  C++ version is old. Please update C++ version &gt; 4.2
+To use inside UMN use “module load gcc/8.2.0”</p>
+</div>
+<div class="section" id="error-due-to-ld-library-path-prerequisite-missing">
+<h2>Error due to LD_LIBRARY_PATH prerequisite missing:<a class="headerlink" href="#error-due-to-ld-library-path-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
+<p>Error: Unable to load lpsolve shared library (liblpsolve55.so).
+It is probably not in the correct path.
+LP test flag 2
+TotNumberOfNest 14 TotNumberOfSTs 70
+align.cmdline ERROR : Fatal Error. Cannot proceed</p>
+<p>Solution:
+It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
+To install lpsolve:
+git clone <a class="reference external" href="https://www.github.com/ALIGN-analoglayout/lpsolve.git">https://www.github.com/ALIGN-analoglayout/lpsolve.git</a>
+To set lpsolve environment path:
+Ubuntu/bash:
+export LD_LIBRARY_PATH=$ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/
+RedHat/tcsh:
+Setenv LD_LIBRARY_PATH $ALIGN_HOME/lpsolve/lp_solve_5.5.2.5_dev_ux64/</p>
+</div>
+<div class="section" id="error-due-to-xvfb-library-used-to-generate-image-of-layout">
+<h2>Error due to xvfb library used to generate image of layout:<a class="headerlink" href="#error-due-to-xvfb-library-used-to-generate-image-of-layout" title="Permalink to this headline">¶</a></h2>
+<p>Error: ERROR : Call to ‘gds2png.sh /ALIGN-public/work/telescopic_ota/telescopic_ota_0.gds /ALIGN-public/work/telescopic_ota/telescopic_ota_0.png /ALIGN-public/align/config/image_png.rb’ failed:
+Solution:
+sudo apt-get install xvfb</p>
+<p>Error due to lpsolve library prerequisite missing:
+Error: ./router/GcellGlobalRouter.h:47:10: fatal error: lp_lib.h: No such file or directory</p>
+<blockquote>
+<div><dl class="simple">
+<dt>#include “lp_lib.h”</dt><dd><p>^~~~~~~~~~</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>compilation terminated.</p>
+<p>Solution:
+It can be due to LD_DIR not present or LD_LIBRARY_PATH path not correct
+To install lpsolve:
+git clone <a class="reference external" href="https://www.github.com/ALIGN-analoglayout/lpsolve.git">https://www.github.com/ALIGN-analoglayout/lpsolve.git</a>
+To set lpsolve environment path:
+Ubuntu/bash:
+export LP_DIR=$ALIGN_HOME/lpsolve
+RedHat/tcsh:
+Setenv LD_DIR $ALIGN_HOME/lpsolve</p>
+</div>
+<div class="section" id="error-due-to-googletest-prerequisite-missing">
+<h2>Error due to googletest prerequisite missing:<a class="headerlink" href="#error-due-to-googletest-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Error: unit_tests.cpp:2:10: fatal error: gtest/gtest.h: No such file or directory</dt><dd><dl class="simple">
+<dt>#include &lt;gtest/gtest.h&gt;</dt><dd><p>^~~~~~~~~~~~~~~</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>compilation terminated.
+Solution:
+It can be due to googletest not present or googletest path not correct
+Installing googletest
+cd $ALIGN_HOME
+git clone <a class="reference external" href="https://github.com/google/googletest">https://github.com/google/googletest</a>
+cd googletest/
+cmake CMakeLists.txt
+make
+mkdir googletest/mybuild
+cp -r lib googletest/mybuild/.
+To set googletest path
+Ubuntu/bash:
+export GTEST_DIR=$ALIGN_HOME/googletest/googletest/
+RedHat/tcsh:
+setenv GTEST_DIR $ALIGN_HOME/googletest/googletest/</p>
+</div>
+<div class="section" id="error-due-to-json-prerequisite-missing">
+<h2>Error due to JSON prerequisite missing:<a class="headerlink" href="#error-due-to-json-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Error: PnRdatabase.h:23:10: fatal error: nlohmann/json.hpp: No such file or directory</dt><dd><dl class="simple">
+<dt>#include &lt;nlohmann/json.hpp&gt;</dt><dd><p>^~~~~~~~~~~~~~~~~~~</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>compilation terminated.
+Solution:
+It can be due to JSON not present or JSON path not correct
+Installing JSON
+cd $ALIGN_HOME
+git clone <a class="reference external" href="https://github.com/nlohmann/json.git">https://github.com/nlohmann/json.git</a>
+To set JSON path
+Ubuntu/bash:
+export JSON=$ALIGN_HOME/json
+RedHat/tcsh:
+setenv JSON $ALIGN_HOME/json</p>
+</div>
+<div class="section" id="error-due-to-python-virtual-environment-prerequisite-missing">
+<h2>Error due to python virtual environment prerequisite missing<a class="headerlink" href="#error-due-to-python-virtual-environment-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
+<p>Error:
+/bin/bash: /opt/venv/bin/activate: No such file or directory
+Solution:
+ALIGN is installed inside a python virtual environment. The default path of the virtual environment is assumed to be /opt/venv/bin/activate. You can edit the makefile to the path of your virtual environment or pass the virtual environment path as a parameter.
+Install python virtual environment:
+cd $ALIGN_HOME
+export VENV=$ALIGN_HOME/general
+python3.6 -m venv $VENV
+source $VENV/bin/activate
+pip install –upgrade pip
+pip install -e .
+deactivate
+To use virtual environment from a path:
+make  VENV=$VENV DESIGN=telescopic_ota</p>
+</div>
+<div class="section" id="error-due-to-klayout-prerequisite-missing">
+<h2>Error due to klayout prerequisite missing<a class="headerlink" href="#error-due-to-klayout-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
+<p>Error: Call to klayout failed.
+Solution: Install klayout tool for visualization
+curl -o /klayout_0.25.4-1_amd64.deb <a class="reference external" href="https://www.klayout.org/downloads/Ubuntu-18/klayout_0.25.4-1_amd64.deb">https://www.klayout.org/downloads/Ubuntu-18/klayout_0.25.4-1_amd64.deb</a>
+apt-get install -yq /klayout_0.25.4-1_amd64.deb</p>
+</div>
+<div class="section" id="error-due-to-missing-align-installation">
+<h2>Error due to missing align installation<a class="headerlink" href="#error-due-to-missing-align-installation" title="Permalink to this headline">¶</a></h2>
+<p>Error: python: can’t open file
+‘$ALIGN_HOME/general/bin/schematic2layout.py’:
+[Errno 2] No such file or directory
+Makefile:36: recipe for target ‘telescopic_ota/telescopic_ota_0.png’ failed
+make: <a href="#id1"><span class="problematic" id="id2">**</span></a>* [telescopic_ota/telescopic_ota_0.png] Error 2
+Solution: This happens due to issues with pip version resulting in missing align package installation.
+cd $ALIGN_HOME
+source $VENV/bin/activate
+pip Install –upgrade pip
+pip Install -e .
+deactivate</p>
+</div>
+<div class="section" id="error-due-to-g-package-not-updated">
+<h2>Error due to g++ package not updated<a class="headerlink" href="#error-due-to-g-package-not-updated" title="Permalink to this headline">¶</a></h2>
+<p>Error:
+&lt;builtin&gt;: recipe for target ‘capplacer.o’ failed
+make[1]: <strong>* [capplacer.o] Error 1
+make[1]: Leaving directory ‘$ALIGN_HOME/PlaceRouteHierFlow/cap_placer’
+Makefile:42: recipe for target ‘subsystem’ failed
+make: *</strong> [subsystem] Error 2
+Solution:
+Check for errors during “sudo apt-get update”. It can be due to the older Ubuntu version and might need Ubuntu update.</p>
+</div>
 </div>
 
 
@@ -54,12 +198,28 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to debug installation installation failure</a><ul>
+<li><a class="reference internal" href="#error-due-to-gcc-version">Error due to gcc version</a></li>
+<li><a class="reference internal" href="#error-due-to-ld-library-path-prerequisite-missing">Error due to LD_LIBRARY_PATH prerequisite missing:</a></li>
+<li><a class="reference internal" href="#error-due-to-xvfb-library-used-to-generate-image-of-layout">Error due to xvfb library used to generate image of layout:</a></li>
+<li><a class="reference internal" href="#error-due-to-googletest-prerequisite-missing">Error due to googletest prerequisite missing:</a></li>
+<li><a class="reference internal" href="#error-due-to-json-prerequisite-missing">Error due to JSON prerequisite missing:</a></li>
+<li><a class="reference internal" href="#error-due-to-python-virtual-environment-prerequisite-missing">Error due to python virtual environment prerequisite missing</a></li>
+<li><a class="reference internal" href="#error-due-to-klayout-prerequisite-missing">Error due to klayout prerequisite missing</a></li>
+<li><a class="reference internal" href="#error-due-to-missing-align-installation">Error due to missing align installation</a></li>
+<li><a class="reference internal" href="#error-due-to-g-package-not-updated">Error due to g++ package not updated</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">ALIGN: Analog Layout, Intelligently Generated from Netlists</a></p>
+  <p class="topless"><a href="database.html"
+                        title="previous chapter">Design database</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="README.html"
-                        title="next chapter">Inputs</a></p>
+  <p class="topless"><a href="modules.html"
+                        title="next chapter">align</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -91,10 +251,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="README.html" title="Inputs"
+          <a href="modules.html" title="align"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="ALIGN: Analog Layout, Intelligently Generated from Netlists"
+          <a href="database.html" title="Design database"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">ALIGN 0.9 documentation</a> &#187;</li> 
       </ul>

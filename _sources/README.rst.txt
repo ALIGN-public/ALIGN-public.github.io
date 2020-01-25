@@ -14,9 +14,9 @@ The ALIGN flow includes the following steps:
 Inputs
 ---------
 
- * A `SPICE netlist <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic*ota/telescopic*ota.sp>`_ of the analog circuit
+ * A `SPICE netlist <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic_ota/telescopic_ota.sp>` of the analog circuit
 
- * `Setup file <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic*ota/telescopic*ota.setup>`_
+ * `Setup file <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic_ota/telescopic_ota.setup>`
 
 	Power and Gnd signals (First power signal is used for global power grid)
 
@@ -30,7 +30,7 @@ Inputs
 
 	\- More library elements can be added in the [user\_template library](align/config/user\_template.sp).
 
- * PDK: Abstracted `design rules <pdks/FinFET14nm*Mock*PDK>`_
+ * PDK: Abstracted `design rules <https://github.com/ALIGN-analoglayout/ALIGN-public/pdks/FinFET14nm_Mock_PDK>`
 
 	\- A mock FinFET 14nm PDK [rules file](pdks/FinFET14nm\_Mock\_PDK/layers.json) is provided, which is used by the primitive cell generator and the place and route engine.
 
