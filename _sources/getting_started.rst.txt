@@ -22,17 +22,17 @@ Native Linux Environment Flow
 
 You can use `install.sh <https://github.com/ALIGN-analoglayout/ALIGN-public/blob/native_single_command_flow/install.sh>`_  to install the requirements and the native flow. Please go through `how to debug installation failures in our documentation <https://align-public.github.io/debug.html>`_ for detailed explanation and common errors during installation.
 
-.. code-block:: bash 
-    
-    for bash : source install.sh
-    for tcsh : source install_tcsh.sh
-
 .. note:: 
-    Requirements being installed through install.sh
+    Requirements
 
 * Python > 3.6
 * gcc>=4.2
 * Ubuntu>=18.04 / RedHat
+
+.. code-block:: bash 
+    
+    for bash : source install.sh
+    for tcsh : source install_tcsh.sh
 
 .. comment
 	* `Boost <https://github.com/boostorg/boost.git>`_ >= 1.68.0
@@ -61,8 +61,6 @@ ALIGN also supports push button flow on docker.
 .. note:: 
     Requirements
 
-.. code-block:: none
-
-	Docker-ce > 17.12
-	Docker compose > 3.6
+* Docker-ce > 17.12
+* Docker compose > 3.6
 

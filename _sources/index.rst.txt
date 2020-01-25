@@ -20,6 +20,7 @@ The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to a
    usage
    viewer
    debug
+   upcoming
    modules
 
 Indices and tables
