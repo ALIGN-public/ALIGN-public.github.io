@@ -241,11 +241,10 @@ Error due to g++ package not updated
 Warnings that can be ignored:
 -------------------------------
 
-.. note:: 
-    Ignore these warnings
-
 * WriteJSON.cpp:144:1: warning: defined but not used [-Wunused-function]
 * GcellDetailRouter.cpp:2550:7: warning: unused variable ‘LLx’ [-Wunused-variable]
 * MNASimulation.cpp:: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
 * GcellDetailRouter.cpp:2571:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
 
+.. note:: 
+    Ignore these warnings
