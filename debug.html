@@ -71,15 +71,12 @@ align.cmdline ERROR : Fatal Error. Cannot proceed
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct</p>
-<p>To install lpsolve:</p>
 </div>
+<p>To install lpsolve:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>To set lpsolve environment path:</p>
-</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ubuntu/bash: <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$ALIGN_HOME</span>/lpsolve/lp_solve_5.5.2.5_dev_ux64/
 RedHat/tcsh: Setenv LD_LIBRARY_PATH <span class="nv">$ALIGN_HOME</span>/lpsolve/lp_solve_5.5.2.5_dev_ux64/
 </pre></div>
@@ -101,7 +98,8 @@ Call to &#39;gds2png.sh /ALIGN-public/work/telescopic_ota/telescopic_ota_0.gds /
 </div>
 <div class="section" id="error-due-to-lpsolve-library-prerequisite-missing">
 <h2>Error due to lpsolve library prerequisite missing:<a class="headerlink" href="#error-due-to-lpsolve-library-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./router/GcellGlobalRouter.h:47:10: fatal error: lp_lib.h: No such file or directory
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+./router/GcellGlobalRouter.h:47:10: fatal error: lp_lib.h: No such file or directory
 #include &quot;lp_lib.h&quot;
       ^~~~~~~~~~
 compilation terminated.
@@ -126,7 +124,8 @@ RedHat/tcsh: setenv LD_DIR <span class="nv">$ALIGN_HOME</span>/lpsolve
 </div>
 <div class="section" id="error-due-to-googletest-prerequisite-missing">
 <h2>Error due to googletest prerequisite missing:<a class="headerlink" href="#error-due-to-googletest-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Error: unit_tests.cpp:2:10: fatal error: gtest/gtest.h: No such file or directory
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+unit_tests.cpp:2:10: fatal error: gtest/gtest.h: No such file or directory
  #include &lt;gtest/gtest.h&gt;
       ^~~~~~~~~~~~~~~
 compilation terminated.
@@ -157,7 +156,8 @@ RedHat/tcsh: setenv GTEST_DIR <span class="nv">$ALIGN_HOME</span>/googletest/goo
 </div>
 <div class="section" id="error-due-to-json-prerequisite-missing">
 <h2>Error due to JSON prerequisite missing:<a class="headerlink" href="#error-due-to-json-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PnRdatabase.h:23:10: fatal error: nlohmann/json.hpp: No such file or directory
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+PnRdatabase.h:23:10: fatal error: nlohmann/json.hpp: No such file or directory
  #include &lt;nlohmann/json.hpp&gt;
       ^~~~~~~~~~~~~~~~~~~
 compilation terminated.
@@ -182,7 +182,8 @@ RedHat/tcsh: setenv JSON $ALIGN_HOME/json</p>
 </div>
 <div class="section" id="error-due-to-python-virtual-environment-prerequisite-missing">
 <h2>Error due to python virtual environment prerequisite missing<a class="headerlink" href="#error-due-to-python-virtual-environment-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/bin/bash: /opt/venv/bin/activate: No such file or directory
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+/bin/bash: /opt/venv/bin/activate: No such file or directory
 </pre></div>
 </div>
 <div class="admonition note">
@@ -209,7 +210,8 @@ deactivate
 </div>
 <div class="section" id="error-due-to-klayout-prerequisite-missing">
 <h2>Error due to klayout prerequisite missing<a class="headerlink" href="#error-due-to-klayout-prerequisite-missing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Call to klayout failed.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+Call to klayout failed.
 </pre></div>
 </div>
 <div class="admonition note">
@@ -223,7 +225,8 @@ apt-get install -yq /klayout_0.25.4-1_amd64.deb
 </div>
 <div class="section" id="error-due-to-missing-align-installation">
 <h2>Error due to missing align installation<a class="headerlink" href="#error-due-to-missing-align-installation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python: can&#39;t open file
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+python: can&#39;t open file
 &#39;$ALIGN_HOME/general/bin/schematic2layout.py&#39;:
 [Errno 2] No such file or directory
 Makefile:36: recipe for target &#39;telescopic_ota/telescopic_ota_0.png&#39; failed
@@ -244,7 +247,8 @@ deactivate
 </div>
 <div class="section" id="error-due-to-g-package-not-updated">
 <h2>Error due to g++ package not updated<a class="headerlink" href="#error-due-to-g-package-not-updated" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;builtin&gt;: recipe for target &#39;capplacer.o&#39; failed
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ERROR:
+&lt;builtin&gt;: recipe for target &#39;capplacer.o&#39; failed
 make[1]: *** [capplacer.o] Error 1
 make[1]: Leaving directory &#39;$ALIGN_HOME/PlaceRouteHierFlow/cap_placer&#39;
 Makefile:42: recipe for target &#39;subsystem&#39; failed

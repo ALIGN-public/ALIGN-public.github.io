@@ -31,15 +31,14 @@ Error due to LD_LIBRARY_PATH prerequisite missing:
 
     It can be due to LD_LIBRARY_PATH not present or LD_LIBRARY_PATH path not correct
     
-    To install lpsolve: 
+To install lpsolve: 
 
 .. code-block:: bash 
 
     git clone https://www.github.com/ALIGN-analoglayout/lpsolve.git
 
-.. note:: 
 
-    To set lpsolve environment path:
+To set lpsolve environment path:
 
 .. code-block:: bash 
 
@@ -65,6 +64,7 @@ Error due to lpsolve library prerequisite missing:
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     ./router/GcellGlobalRouter.h:47:10: fatal error: lp_lib.h: No such file or directory
     #include "lp_lib.h"
           ^~~~~~~~~~
@@ -93,7 +93,8 @@ Error due to googletest prerequisite missing:
 ------------------------------------------------------------
 .. code-block:: none 
 
-    Error: unit_tests.cpp:2:10: fatal error: gtest/gtest.h: No such file or directory
+    ERROR:
+    unit_tests.cpp:2:10: fatal error: gtest/gtest.h: No such file or directory
      #include <gtest/gtest.h>
           ^~~~~~~~~~~~~~~
     compilation terminated.
@@ -127,6 +128,7 @@ Error due to JSON prerequisite missing:
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     PnRdatabase.h:23:10: fatal error: nlohmann/json.hpp: No such file or directory
      #include <nlohmann/json.hpp>
           ^~~~~~~~~~~~~~~~~~~
@@ -154,6 +156,7 @@ Error due to python virtual environment prerequisite missing
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     /bin/bash: /opt/venv/bin/activate: No such file or directory
 
 .. note:: 
@@ -185,6 +188,7 @@ Error due to klayout prerequisite missing
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     Call to klayout failed.
 
 .. note:: 
@@ -200,6 +204,7 @@ Error due to missing align installation
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     python: can't open file
     '$ALIGN_HOME/general/bin/schematic2layout.py':
     [Errno 2] No such file or directory
@@ -222,6 +227,7 @@ Error due to g++ package not updated
 ------------------------------------------------------------
 .. code-block:: none 
 
+    ERROR:
     <builtin>: recipe for target 'capplacer.o' failed
     make[1]: *** [capplacer.o] Error 1
     make[1]: Leaving directory '$ALIGN_HOME/PlaceRouteHierFlow/cap_placer'
