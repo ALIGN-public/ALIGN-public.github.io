@@ -48,11 +48,17 @@
 <p>Despite using install.sh if something fails, we have collected a basic set of errors and how to resolve them.</p>
 <div class="section" id="error-due-to-gcc-version">
 <h2>Error due to gcc version<a class="headerlink" href="#error-due-to-gcc-version" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version &#39;GLIBCXX_3.4.21&#39; not found
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version ‘GLIBCXX_3.4.21’ not found
-Solution:  C++ version is old. Please update C++ version &gt; 4.2
-To use inside UMN use “module load gcc/8.2.0”</p>
+<dl class="field-list simple">
+<dt class="field-odd">strong</dt>
+<dd class="field-odd"><p><cite>Solution</cite>:  C++ version is old. Please update C++ version &gt; 4.2</p>
+</dd>
+</dl>
+<p>To use inside UMN use “module load gcc/8.2.0”</p>
 </div>
 </div>
 <div class="section" id="error-due-to-ld-library-path-prerequisite-missing">

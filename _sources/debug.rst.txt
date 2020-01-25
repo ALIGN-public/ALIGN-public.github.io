@@ -6,10 +6,12 @@ Despite using install.sh if something fails, we have collected a basic set of er
 
 Error due to gcc version
 --------------------------
-.. note:: 
+.. code-block:: none 
 
     PlaceRouteHierFlow/pnr_compiler: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found
-    Solution:  C++ version is old. Please update C++ version > 4.2
+.. note:: 
+    
+    :strong: `Solution`:  C++ version is old. Please update C++ version > 4.2
     To use inside UMN use “module load gcc/8.2.0” 
 
 Error due to LD_LIBRARY_PATH prerequisite missing: 
