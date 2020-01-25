@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>ALIGN: Analog Layout, Intelligently Generated from Netlists &#8212; ALIGN 0.9 documentation</title>
+    <title>Inputs: &#8212; ALIGN 0.9 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -35,20 +35,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="align-analog-layout-intelligently-generated-from-netlists">
-<h1>ALIGN: Analog Layout, Intelligently Generated from Netlists<a class="headerlink" href="#align-analog-layout-intelligently-generated-from-netlists" title="Permalink to this headline">¶</a></h1>
-<p>ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&amp;M University, and Intel Corporation.</p>
-<p>The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout. The repository also releases a set of analog circuit designs.</p>
-<p>The ALIGN flow includes the following steps:</p>
-<ul class="simple">
-<li><p><em>Circuit annotation</em> creates a multilevel hierarchical representation of the input netlist. This representation is used to implement the circuit layout in using a hierarchical manner.</p></li>
-<li><p><em>Design rule abstraction</em> creates a compact JSON-format represetation of the design rules in a PDK. This repository provides a mock PDK based on a FinFET technology (where the parameters are based on published data). These design rules are used to guide the layout and ensure DRC-correctness.</p></li>
-<li><p><em>Primitive cell generation</em> works with primitives, i.e., blocks the lowest level of design hierarchy, and generates their layouts. Primitives typically contain a small number of transistor structures (each of which may be implemented using multiple fins and/or fingers). A parameterized instance of a primitive is automatically translated to a GDSII layout in this step.</p></li>
-<li><p><em>Placement and routing</em> performs block assembly of the hierarchical blocks in the netlist and routes connections between these blocks, while obeying a set of analog layout constraints. At the end of this step, the translation of the input SPICE netlist to a GDSII layout is complete.</p></li>
-</ul>
-</div>
-<div class="section" id="inputs">
-<h1># Inputs:<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="inputs">
+<h1>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><ul>
 <li><p>A <a class="reference external" href="examples/telescopic*ota/telescopic*ota.sp">SPICE netlist</a> of the analog circuit</p></li>
@@ -216,8 +204,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">ALIGN: Analog Layout, Intelligently Generated from Netlists</a></li>
-<li><a class="reference internal" href="#inputs"># Inputs:</a></li>
+<li><a class="reference internal" href="#">Inputs:</a></li>
 <li><a class="reference internal" href="#outputs"># Outputs</a></li>
 <li><a class="reference internal" href="#getting-started"># Getting started</a></li>
 <li><a class="reference internal" href="#native-linux-environment-flow">### Native Linux Environment Flow</a></li>

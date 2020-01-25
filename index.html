@@ -37,7 +37,18 @@
             
   <div class="section" id="welcome-to-align-documentation">
 <h1>Welcome to ALIGN documentation!<a class="headerlink" href="#welcome-to-align-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This is align documentation</p>
+<p>This is ALIGN documentation
+ALIGN: Analog Layout, Intelligently Generated from Netlists
+===========================================================</p>
+<p>ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&amp;M University, and Intel Corporation.</p>
+<p>The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout. The repository also releases a set of analog circuit designs.</p>
+<p>The ALIGN flow includes the following steps:</p>
+<blockquote>
+<div><p><em>Circuit annotation</em> creates a multilevel hierarchical representation of the input netlist. This representation is used to implement the circuit layout in using a hierarchical manner.</p>
+<p><em>Design rule abstraction</em> creates a compact JSON-format represetation of the design rules in a PDK. This repository provides a mock PDK based on a FinFET technology (where the parameters are based on published data). These design rules are used to guide the layout and ensure DRC-correctness.</p>
+<p><em>Primitive cell generation</em> works with primitives, i.e., blocks the lowest level of design hierarchy, and generates their layouts. Primitives typically contain a small number of transistor structures (each of which may be implemented using multiple fins and/or fingers). A parameterized instance of a primitive is automatically translated to a GDSII layout in this step.</p>
+<p>Placement and routing performs block assembly of the hierarchical blocks in the netlist and routes connections between these blocks, while obeying a set of analog layout constraints. At the end of this step, the translation of the input SPICE netlist to a GDSII layout is complete.</p>
+</div></blockquote>
 <div class="toctree-wrapper compound">
 </div>
 </div>
