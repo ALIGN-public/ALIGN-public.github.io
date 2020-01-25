@@ -14,33 +14,33 @@ The ALIGN flow includes the following steps:
 Inputs
 ---------
 
- * A `SPICE netlist <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic_ota/telescopic_ota.sp>`_ of the analog circuit
+ * A `SPICE netlist <https://github.com/ALIGN-analoglayout/ALIGN-public/tree/master/examples/telescopic_ota/telescopic_ota.sp>`_ of the analog circuit
 
- * `Setup file <https://github.com/ALIGN-analoglayout/ALIGN-public/examples/telescopic_ota/telescopic_ota.setup>`_
+ * `Setup file <https://github.com/ALIGN-analoglayout/ALIGN-public/tree/master/examples/telescopic_ota/telescopic_ota.setup>`_
 
-	Power and Gnd signals (First power signal is used for global power grid)
+	* Power and Gnd signals (First power signal is used for global power grid)
 
-	\- Clk signal (optional)
+	* Clk signal (optional)
 
-	\- Digital blocks (optional)
+	* Digital blocks (optional)
 
  * Library:(SPICE format)
 
-	\- A basic built\-in [template library](align/config/basic\_template.sp) is provided, which is used to identify hierachies in the design.
+	* A basic built\-in [template library](align/config/basic\_template.sp) is provided, which is used to identify hierachies in the design.
 
-	\- More library elements can be added in the [user\_template library](align/config/user\_template.sp).
+	* More library elements can be added in the [user\_template library](align/config/user\_template.sp).
 
- * PDK: Abstracted `design rules <https://github.com/ALIGN-analoglayout/ALIGN-public/pdks/FinFET14nm_Mock_PDK>`_
+ * PDK: Abstracted `design rules <https://github.com/ALIGN-analoglayout/ALIGN-public/tree/master/pdks/FinFET14nm_Mock_PDK>`_
 
-	\- A mock FinFET 14nm PDK [rules file](pdks/FinFET14nm\_Mock\_PDK/layers.json) is provided, which is used by the primitive cell generator and the place and route engine.
+	* A mock FinFET 14nm PDK [rules file](pdks/FinFET14nm\_Mock\_PDK/layers.json) is provided, which is used by the primitive cell generator and the place and route engine.
 
-	\- A new PDK can be represented using a JSON\-format design rule abstraction, similar to mock\-PDK design rules file provided.
+	* A new PDK can be represented using a JSON\-format design rule abstraction, similar to mock\-PDK design rules file provided.
 
-	\- Primitive cells(NMOS/PMOS/[Resistor](pdks/FinFET14nm\_Mock\_PDK/fabric\_Res.py)/[Capacitor](pdks/FinFET14nm\_Mock\_PDK/fabric\_Cap.py)) must be redefined for any new PDK.
+	* Primitive cells (NMOS/PMOS/Resistor/Capacitor) must be redefined for any new PDK.
 
  * LEF:
 
-	\- A list of parameterized cells supported by cell generator is stored in file [param\_lef](align/config/param\_lef).
+	* A list of parameterized cells supported by cell generator is stored in file `param_lef <https://github.com/ALIGN-analoglayout/ALIGN-public/blob/master/align/config/param_lef>`_.
 
 Outputs
 ---------

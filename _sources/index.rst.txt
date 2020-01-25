@@ -14,11 +14,11 @@ The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to a
    :maxdepth: 2
    :caption: Contents:
 
+   database
    README
    getting_started
    usage
    viewer
-   database
    debug
    modules
 
