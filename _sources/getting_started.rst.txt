@@ -5,66 +5,51 @@ The suggested way to run the end-to-end ALIGN flow uses a Docker container-based
 
 Two environment variables must be set to run the Makefile in any environment. The first is the ALIGN\_HOME variable, which should point the top directory of the ALIGN analog system.
 
-		% export ALIGN\_HOME=<top of ALIGN source area>
+.. code-block:: bash 
+
+		export ALIGN\_HOME=<top of ALIGN source area>
 
 The second is a working directory ALIGN\_WORK\_DIR, which can either be the full path to a working directory or a docker volume name.  
 
-		% docker volume create <volumeName>
+.. code-block:: bash 
 
 		% export ALIGN\_WORK\_DIR=<volumeName for docker flow / full work dir path for native flow>
+
+		% docker volume create <volumeName>
 
 Native Linux Environment Flow
 -------------------------------
 
-You can use '`source install.sh](install.sh)' (for bash shell) or '[source install*tcsh.sh](install*tcsh.sh)' (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design <docs/Running*your*first*design.pdf>`*' (for bash shell) or '`source install*tcsh.sh](install*tcsh.sh)' (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through [Running*your*first*design <docs/Running*your*first*design.pdf>`*' (for tcsh/ Red Hat) to install the requirements and the native flow. Please go through `Running*your*first*design <docs/Running*your*first*design.pdf>`_ for detailed explanation and common errors during installation.
+You can use `install.sh <https://github.com/ALIGN-analoglayout/ALIGN-public/blob/native_single_command_flow/install.sh>`_  to install the requirements and the native flow. Please go through `how to debug installation failures in our documentation <https://align-public.github.io/debug.html>`_ for detailed explanation and common errors during installation.
 
- * Requirements
+.. code-block:: bash 
+    
+    for bash : source install.sh
+    for tcsh : source install_tcsh.sh
 
-	\- Python > 3.6
+ * Requirements being installed through install.sh
 
-	\- gcc>=4.2
+	* Python > 3.6
+	* gcc>=4.2
+	* `Boost <https://github.com/boostorg/boost.git>`_ >= 1.68.0
+	* `Lpsolve <https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp\_solve\_5.5.2.5\_source.tar.gz/download>`_ >= 5.5.2.5
+	* `JSON <https://github.com/nlohmann/json.git>`_ =3.7.3
+	* `Googletest <https://github.com/google/googletest>`_ =1.10
 
-	\- [Boost]( https://github.com/boostorg/boost.git) >= 1.68.0
-
-	\- [Lpsolve](https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp\_solve\_5.5.2.5\_source.tar.gz/download) >= 5.5.2.5
-
-	\- [JSON]( https://github.com/nlohmann/json.git)>=3.7.3
-
-	\- [Googletest]( https://github.com/google/googletest)>=1.10
-
-	\- Skip these steps if you are using [install.sh](install.sh)
-
- * Setting up local environment variables if installations are not in system search path.
-
-		% export BOOST\_LP= <boost installation path, e.g., $ALIGN\_HOME/boost>
-
-		% export LP\_DIR=<lpsolve installation path, e.g., $ALIGN\_HOME/lpsolve>
-
-		% export JSON= <json installation path, e.g., $ALIGN\_HOME/json>
-
-		% export LD\_LIBRARY\_PATH=<lpsolve library path, e.g., $ALIGN\_HOME/lpsolve/lp\_solve\_5.5.2.5\_dev\_ux64/>
-
-		% export GTEST\_DIR=<googletest installation path, e.g., $ALIGN\_HOME/googletest/googletest/>
-
-		% export VENV= <python virtual environment path, e.g., ./align\_venv>
 
 		% Skip these steps if you are using [install.sh](install.sh)
 
  * Installation
 
-		% cd PlaceRouteHierFlow
-
-		% make
-
-		% cd $ALIGN\_HOME
-
-		% python3 \-m venv $VENV 
-
-		% source $VENV/bin/activate 
-
-		% pip install \-\-upgrade pip
-
-		% pip install \-e .
+.. code-block:: bash 
+    
+	cd PlaceRouteHierFlow
+	make
+	cd $ALIGN_HOME
+	python3 -m venv $VENV 
+	source $VENV/bin/activate 
+	pip install --upgrade pip
+	pip install -e .
 
 Docker flow
 ------------------------------
